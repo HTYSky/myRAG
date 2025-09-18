@@ -1,2 +1,4 @@
-# 忽略环境文件夹
-env/
+rag_env/
+model/
+assets/
+api_logs.log
