@@ -34,7 +34,7 @@ class Query(BaseModel):
     option_C: str
     option_D: str
 
-RAG_ASSETS_PATH = "./rag_assets"
+RAG_ASSETS_PATH = "./assets"
 print("Loading chunks and metadata...")
 with open(f"{RAG_ASSETS_PATH}/chunks.json", "r", encoding="utf-8") as f:
     CHUNKS = json.load(f)
@@ -83,13 +83,13 @@ print("--- FAISS Index Loading Complete ---\n")
 
 
 print("Loading embedding model...")
-EMBEDDING_MODEL = SentenceTransformer('BAAI/bge-large-zh-v1.5', device='cuda')
+EMBEDDING_MODEL = SentenceTransformer('./model/bge-large-zh-v1.5', device='cuda')
 
 print("Loading reranker model...")
-RERANKER_MODEL = CrossEncoder('BAAI/bge-reranker-large', max_length=512, device='cuda')
+RERANKER_MODEL = CrossEncoder('./model/bge-reranker-large', max_length=512, device='cuda')
 
 print("Loading 4-bit quantized LLM with bitsandbytes...")
-LLM_MODEL_PATH = '/home/ubuntu/rag_test/qwen2-7b-instruct-bnb-4bit'
+LLM_MODEL_PATH = './model/qwen2-7b-instruct-bnb-4bit'
 
 bnb_config = BitsAndBytesConfig(
     load_in_4bit=True,

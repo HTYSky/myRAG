@@ -11,7 +11,7 @@ import numpy as np
 # PDF文档存放路径
 PDF_PATH = "/dataset/KnowledgeDocument/"
 # 处理后数据和索引的保存路径
-OUTPUT_PATH = "./rag_assets"
+OUTPUT_PATH = "./assets"
 os.makedirs(OUTPUT_PATH, exist_ok=True)
 
 def parse_pdf_hybrid(file_path):
@@ -110,7 +110,7 @@ def main():
 
     # 3. 加载嵌入模型
     print("Loading embedding model...")
-    embedding_model = SentenceTransformer('BAAI/bge-large-zh-v1.5', device='cuda')
+    embedding_model = SentenceTransformer('./model/bge-large-zh-v1.5', device='cuda')
 
     # 4. 生成嵌入向量
     instruction = "为这个句子生成表示以用于检索相关文章："

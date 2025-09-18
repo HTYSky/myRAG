@@ -3,9 +3,9 @@ import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
 
 # --- 配置路径 (与之前保持一致) ---
-model_path = '/home/ubuntu/rag_test/model/Qwen2-7B-Instruct'
+model_path = './model/Qwen2-7B-Instruct'
 # 保存路径建议用新的名字，以明确是bitsandbytes量化版
-quant_path = '/home/ubuntu/rag_test/qwen2-7b-instruct-bnb-4bit'
+quant_path = './model/qwen2-7b-instruct-bnb-4bit'
 
 def main():
     print(f"Loading model from local path: {model_path}")
