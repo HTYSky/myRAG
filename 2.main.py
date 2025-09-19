@@ -182,12 +182,12 @@ def build_prompt(question, options, context_chunks):
 ---
 
 基于你的分析，请从A、B、C、D中选择最正确的答案。你的答案必须是以下四个选项之一：'A'、'B'、'C' 或 'D'。
-如果上下文信息不足以确定答案，请选择'F'。
 
 答案：
 """
     
     logger.info(f"✅ 提示词构建完成，总长度: {len(prompt)} 字符")
+    logger.info(f"PROMPT: {prompt}")
     return prompt
 
 @app.post("/answer")
